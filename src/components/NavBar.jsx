@@ -8,6 +8,7 @@ import search_icon_dark from "../assets/search-b.png";
 import toggle_light from "../assets/night.png";
 import toggle_dark from "../assets/day.png";
 
+
 const NavBar = ({ theme, setTheme }) => {
 
   const [showmenu, setShowMenu] = useState(false);
@@ -25,8 +26,9 @@ const NavBar = ({ theme, setTheme }) => {
         alt="Logo"
         className="logo"
       />
+      
 
-        <ul className="nav-links">
+        <ul className={`nav-links ${showmenu ? "active" : ""}`}>
           <li>Home</li>
           <li>Courses</li>
           <li>Blogs</li>
@@ -42,18 +44,29 @@ const NavBar = ({ theme, setTheme }) => {
           />
         </div>
 
-        <img
-          onClick={() => {
-            toggle_mode();
-          }}
-          src={theme == "light" ? toggle_light : toggle_dark}
-          alt="Toggle"
-          className="toggle-icon"
-        />
+      <div className="nav-actions">
 
-        <div className="profile">
-          👤
-        </div>
+  <img
+    onClick={() => {
+      toggle_mode();
+    }}
+    src={theme == "light" ? toggle_light : toggle_dark}
+    alt="Toggle"
+    className="toggle-icon"
+  />
+
+  <div className="profile">
+    👤
+  </div>
+
+  <div
+    className="hamburger"
+    onClick={() => setShowMenu(!showmenu)}
+  >
+    <GiHamburgerMenu />
+  </div>
+
+</div>
 
     </nav>
   );

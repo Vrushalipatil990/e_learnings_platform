@@ -12,6 +12,8 @@ const App = () => {
     <div className={`container ${theme}`}>
       <NavBar theme={theme} setTheme={setTheme} />
     </div>
+
+   
   );
 }
 
