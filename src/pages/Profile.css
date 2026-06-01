@@ -1,0 +1,48 @@
+.profile-container{
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    width:70%;
+    margin:50px auto;
+
+    padding:30px;
+    border-radius:12px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.profile-pic{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile-info{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+     align-items:flex-start;
+}
+
+.edit-button{
+    
+    border-radius:15px;
+    font-size:13px;
+    padding:10px 20px;
+    cursor:pointer;
+    background-color:#1e1e1e;
+    color:white;
+    
+    
+    
+}
+.dark .profile-container{
+    background:#1e1e1e;
+    color:white;
+}
+.dark .edit-button{
+    background-color:#ffffff;
+    color:#222;
+}

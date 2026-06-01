@@ -14,10 +14,7 @@ const Courses = () => {
     </div>
     <div className="search-bar">
         <input type="Text" placeholder="Search your courses" />
-        </div>
-
-    
-    
+     </div>
   </div>
   </div>
   );
