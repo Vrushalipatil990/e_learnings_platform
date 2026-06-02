@@ -1,8 +1,11 @@
  import pro_pic from "../assets/temparary_profile_picture.png";
  import "./EditProfile.css";
+import React, { useState } from "react";
+ 
  function EditProfile() {
+    const [qualification, setQualification] = useState("");
   return (
-      <div className="edit-profile-container">
+      <form className="edit-profile-container">
 
     <div className="profile-image-section">
         <img src={pro_pic} alt="Profile" className="profile-pic" />
@@ -15,24 +18,119 @@
     <input
         type="text"
         placeholder="Full Name"
+        required
     />
 
     <input
         type="tel"
         placeholder="Phone Number"
+        required
     />
 
     <input
         type="email"
         placeholder="Email"
+        required
     />
+    <input
+        type="text"
+        placeholder="Address"
+        required
+    />
+    <label>Gender</label>
+
+ <div className="gender-group">
+  <label>
+    <input type="radio" name="gender" value="male" />
+    Male
+  </label>
+
+  <label>
+    <input type="radio" name="gender" value="female" />
+    Female
+  </label>
+
+  <label>
+    <input type="radio" name="gender" value="other" />
+    Other
+  </label>
+</div>
+ <div className="dob-age-row">
+
+  <div className="dob-field">
+    <label>Date of Birth</label>
+    <input type="date" />
+  </div>
+
+  <div className="age-field">
+    <label>Age</label>
+    <input
+      type="number"
+      placeholder="Age"
+      disabled
+    />
+  </div>
+
+</div>
+<label>Qualification</label>
+
+<select
+  value={qualification}
+  onChange={(e) => setQualification(e.target.value)}
+>
+  <option value="">Select Qualification</option>
+  <option value="student">Student</option>
+  <option value="professional">Working Professional</option>
+  <option value="teacher">Teacher</option>
+  <option value="other">Other</option>
+</select>
+{qualification === "student" && (
+  <>
+    <label>College Name</label>
+    <input
+      type="text"
+      placeholder="Enter College Name"
+    />
+  </>
+)}
+
+{qualification === "professional" && (
+  <>
+    <label>Organization Name</label>
+    <input
+      type="text"
+      placeholder="Enter Organization Name"
+    />
+  </>
+)}
+
+{qualification === "teacher" && (
+  <>
+    <label>Institution Name</label>
+    <input
+      type="text"
+      placeholder="Enter Institution Name"
+    />
+  </>
+)}
+
+{qualification === "other" && (
+  <>
+    <label>Organization / College</label>
+    <input
+      type="text"
+      placeholder="Enter Details"
+    />
+  </>
+)}
+
 
     <div className="button-group">
         <button className="save-btn">Save Changes</button>
         <button className="cancel-btn">Cancel</button>
     </div>
 
-</div>
+</form>
   );
 }
 

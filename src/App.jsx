@@ -1,6 +1,7 @@
 import{BrowserRouter,Routes,Route} from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 
@@ -16,8 +17,10 @@ const App = () => {
       <NavBar theme={theme} setTheme={setTheme} />
 
       <Routes>
+        <Route path="/Home" element={<Home/>} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit-profile" element={<EditProfile />} /> 
+
       </Routes>
     </div>
   </BrowserRouter>

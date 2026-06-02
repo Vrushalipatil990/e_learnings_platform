@@ -31,7 +31,14 @@
     text-align:center;
     list-style:none;
     flex-wrap:wrap;
+    
 }
+.nav-links a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
 .hamburger{
     display:none;
     font-size:28px;
