@@ -1,0 +1,24 @@
+.cateogry-section{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:100px;
+    padding:20px;
+    background:#baddc8;
+    border-radius:50px;
+    margin-top:20px;
+}
+
+.categry-section button{
+    
+     padding:10px 25px;
+    border-radius:50px;
+    border:1px solid #ddd;
+    background:white;
+}
+}
+
+.categry-section button:hover{
+    background:#4CAF50;
+    color:white;
+}

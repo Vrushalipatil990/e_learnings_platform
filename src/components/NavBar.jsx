@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import "./NavBar.css";
+import "../components/NavBar.css";
 import logo_light from "../assets/logo-black.png";
 import logo_dark from "../assets/logo-white.png";
 import search_icon_light from "../assets/search-w.png";
 import search_icon_dark from "../assets/search-b.png";
 import toggle_light from "../assets/night.png";
 import toggle_dark from "../assets/day.png";
+import { NavLink } from "react-router-dom";
 
 
 const NavBar = ({ theme, setTheme }) => {
@@ -29,10 +30,18 @@ const NavBar = ({ theme, setTheme }) => {
       
 
         <ul className={`nav-links ${showmenu ? "active" : ""}`}>
-          <li>Home</li>
-          <li>Courses</li>
-          <li>Blogs</li>
-          <li>Quiz</li>
+          <li>
+            <NavLink to="/home">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to ="/courses">Course</NavLink>
+          </li>
+          <li>
+            <NavLink to="/blogs">Blogs</NavLink>
+          </li>
+          <li>
+            <NavLink to="/quize">Quiz</NavLink>
+          </li>
         </ul>
 
         <div className="search-box">
