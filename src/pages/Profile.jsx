@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import pro_pic from "../assets/temparary_profile_picture.png";
 function Profile() {
   return (
+    <>
     <div className="profile-container">
 
     <img src={pro_pic} alt="Profile" className="profile-pic" />
@@ -22,6 +23,7 @@ function Profile() {
       </div>
 
     </div>
+    </>
   );
 }
 
