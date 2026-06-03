@@ -1,26 +1,31 @@
-import React from 'react'
+import React from "react";
 import "./category.css";
 
 const CategoryFilter = () => {
-    
-    const categories = [
-        "UI/UX Design",
-        "Devolpment",
-        "Business",
-        "Data Science",
-        "Financial"
-    ];
+
+  const categories = [
+    "UI/UX Design",
+    "Development",
+    "Business",
+    "Data Science",
+    "Financial"
+  ];
 
   return (
-    <div className='cateogry-section'>
-        <button>{"<"}</button>
-        {categories.map((category,index) => (
-            <button key={index}> {category}</ button>
-        ))}
-        <button>{">"}</button>
-      
-    </div>
-  )
-}
+    <div className="category-section">
 
-export default CategoryFilter
+      <button>{"<"}</button>
+
+      {categories.map((category, index) => (
+        <button key={index}>
+          {category}
+        </button>
+      ))}
+
+      <button>{">"}</button>
+
+    </div>
+  );
+};
+
+export default CategoryFilter;
