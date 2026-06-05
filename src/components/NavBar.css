@@ -123,60 +123,93 @@
     gap:20px;
 }
 
-/*Mobile view*/
-@media (max-width:1100px){
+/* Mobile view */
+@media (max-width: 989px) {
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .navbar{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        flex-wrap:nowrap;
+        position:relative;
+        padding:10px 12px;
+    }
+
+    .logo{
+        width:90px;
+    }
+
+    .search-box{
+        display:flex;
+        align-items:center;
+        padding:6px 12px;
+        margin:0 5px;
+    }
+
+    .search-box input{
+        max-width:70px;
+        font-size:14px;
+        padding:4px;
+    }
+
+    #search-icon-img{
+        width:16px;
+        margin-left:5px;
+    }
+
+    .nav-actions{
+        display:flex;
+        align-items:center;
+        gap:8px;
+        margin-left:0;
+    }
+
+    .toggle-icon{
+        width:28px;
+        height:28px;
+    }
+
+    .profile{
+        width:28px;
+        height:28px;
+        font-size:18px;
+    }
+
+    #profile-icon{
+        font-size:26px;
+    }
 
     .hamburger{
         display:block;
+        font-size:24px;
+        cursor:pointer;
     }
 
     .nav-links{
+        display:none;
         position:absolute;
         top:70px;
-        right:-225px;
+        right:0;
         width:220px;
-        background:rgb(194, 190, 190);
+        background:rgb(194,190,190);
         flex-direction:column;
-        gap:20px;
+        gap:15px;
         padding:20px;
-        transition:0.3s ease;
+        list-style:none;
+        z-index:1000;
         box-shadow:0 2px 10px rgba(0,0,0,0.2);
     }
 
     .nav-links.active{
-        right:0;
+        display:flex;
     }
 
-    .navbar{
-    flex-wrap:nowrap;
-    position:relative;
-    align-items:center;
+    .nav-links li{
+        margin:0;
+        text-align:left;
+    }
 }
-
-.search-box{
-    width:auto;
-    margin-top:5px;
-    height:35px;
-    margin:0 10px;
-    margin-left:auto;
-}
-.search-box input{
-    max-width:100px;
-    font-size:16px;
-}
-.logo{
-    width:120px;
-    margin-top:5px;
-}
-
-
-.nav-actions{
-    margin-left:auto;
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-left:auto;
-}
-}
-
-
