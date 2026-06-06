@@ -31,7 +31,7 @@ const NavBar = ({ theme, setTheme }) => {
 
         <ul className={`nav-links ${showmenu ? "active" : ""}`}>
           <li><Link to="/Home">Home</Link></li> 
-          <li>Courses</li>
+          <li> <Link to ="/Courses">Courses</Link></li>
           <li>Blogs</li>
           <li>Quiz</li>
         </ul>
