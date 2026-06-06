@@ -31,10 +31,14 @@
     padding:10px 20px;
     cursor:pointer;
     background-color:#1e1e1e;
-    color:white;
-    
-    
-    
+    color:white; 
+}
+.enrolled-heading
+{
+    width:90%;
+    max-width:700px;
+    margin:30px 50px 10px;
+    font-size:22px;
 }
 
 @media (max-width:768px){
@@ -56,4 +60,16 @@
 .dark .edit-button{
     background-color:#ffffff;
     color:#222;
+}
+
+/* EnrolledCourseCard */
+.enrolled-courses{
+    display:flex;
+    gap:25px;
+    padding:30px 50px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.dark .enrolled-heading{
+    color:#fff;
 }

@@ -116,6 +116,17 @@ select{
     border-radius:8px;
 }
 
+.delete-profile-btn{
+    background:#dc2626;
+    color:white;
+    border:none;
+    border-radius:20px;
+    padding:10px 20px;
+    cursor:pointer;
+
+    margin-left:auto;
+}
+
 .dark select{
     background:#2a2a2a;
     color:white;
@@ -136,6 +147,44 @@ select{
 .dark .cancel-btn{
     background-color:#ffffff;
     color:#222;
+}
+
+
+.warning-popup{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+    background:white;
+    padding:30px;
+    border-radius:12px;
+
+    box-shadow:0 2px 15px rgba(0,0,0,0.3);
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+.warning-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.cancel-delete-btn{
+    background:#444;
+    color:white;
+    border:none;
+    border-radius:20px;
+    padding:10px 20px;
+}
+
+.confirm-delete-btn{
+    background:#dc2626;
+    color:white;
+    border:none;
+    border-radius:20px;
+    padding:10px 20px;
 }
 
 
