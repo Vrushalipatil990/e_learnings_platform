@@ -33,7 +33,7 @@ const NavBar = ({ theme, setTheme }) => {
           <li><Link to="/Home">Home</Link></li> 
           <li> <Link to ="/Courses">Courses</Link></li>
           <li>Blogs</li>
-          <li>Quiz</li>
+          <li><Link to ="/Quize">Quize</Link></li>
         </ul>
 
       <div className="nav-actions">

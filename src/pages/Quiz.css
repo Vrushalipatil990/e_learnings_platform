@@ -1,0 +1,127 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.quize-container{
+    padding:40px 30px;
+    background:rgb(226, 238, 245);
+    min-height:100vh;
+}
+
+.quize-title{
+    font-size:38px;
+    font-weight:700;
+    color:#181f2b;
+    margin-bottom:10px;
+}
+
+.quize-subtitle{
+    color:#2e343b;
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+/* Quiz Cards Grid */
+
+.quiz-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:20px;
+}
+
+/* Individual Card */
+
+.quiz-card{
+    background:rgb(255, 255, 255);
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.quiz-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Circle Icon */
+
+.quiz-icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 15px;
+    font-size:28px;
+    color:white;
+    font-weight:bold;
+}
+
+/* Card Content */
+
+.quiz-card h3{
+    margin-bottom:12px;
+    color:#1e293b;
+    font-size:20px;
+}
+
+.quiz-card p{
+    color:#64748b;
+    font-size:14px;
+    margin:6px 0;
+}
+
+/* Start Button */
+
+.quiz-btn{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+}
+
+.quiz-btn:hover{
+    opacity:0.9;
+}
+
+/* Tablet View */
+
+@media(max-width:992px){
+
+    .quiz-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+/* Mobile View */
+
+@media(max-width:768px){
+
+    .quize-container{
+        padding:20px;
+    }
+
+    .quize-title{
+        font-size:30px;
+    }
+
+    .quiz-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quiz-card{
+        width:100%;
+    }
+
+}

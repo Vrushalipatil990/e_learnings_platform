@@ -82,15 +82,6 @@ const Courses = () => {
         <h1>All  <span className="highlight">Courses Of</span> SkillDo</h1>
        
   
-
-        <div className="search-bar">
-          <input type="text"placeholder="Search your courses"
-             />
-         <img src={searchIcon}
-    alt="search"
-    className="search-icon"
-  />
-        </div>
       </div>
   
       <CategoryFilter />
