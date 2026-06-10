@@ -35,3 +35,18 @@
     }
 
 }
+/* Dark Mode */
+.dark .category-section{
+    background:#2c3e50;
+}
+
+.dark .category-section button{
+    background:#333;
+    color:white;
+    border:1px solid #555;
+}
+
+.dark .category-section button:hover{
+    background:#4a6fa5;
+    color:white;
+}

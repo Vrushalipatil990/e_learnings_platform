@@ -71,3 +71,31 @@
     }
 
 }
+/* Dark Mode */
+
+.dark .course-card{
+    background:#333;
+    color:white;
+    box-shadow:0 2px 10px rgba(255,255,255,0.1);
+}
+
+.dark .course-content h3{
+    color:white;
+}
+
+.dark .course-details{
+    color:#ccc;
+}
+
+.dark .course-info{
+    color:#ddd;
+}
+
+.dark .category-tag{
+    background:#1e4620;
+    color:#81c784;
+}
+
+.dark .price{
+    color:#81c784;
+}

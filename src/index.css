@@ -13,3 +13,12 @@
 .container.dark{
   background: #222;
 }
+#root{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+.container{
+    flex:1;
+}
