@@ -10,9 +10,13 @@ import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import Blogs from "./pages/blogs";
 import Quize from "./pages/Quiz";
+import QuizCompleted from "./pages/QuizCompleted";
+import ReviewAnswers from "./pages/ReviewAnswers";
+import Leaderboard from "./pages/Leaderboard";
 
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
+
 
 const App = () => {
   const current_theme =
@@ -38,6 +42,9 @@ const App = () => {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/quize" element={<Quize />} />
           <Route path="/quizquestions" element={<QuizQuestions />} />
+          <Route path="/quiz-completed" element={<QuizCompleted />} /> 
+          <Route path="/review-answers" element={<ReviewAnswers/>}/>
+          <Route path="/leaderboard" element={<Leaderboard/>}/>
 
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit-profile" element={<EditProfile />} />
