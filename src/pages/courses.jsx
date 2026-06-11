@@ -83,8 +83,6 @@ const Courses = () => {
        
   
 
-
-
         <div className="search-bar">
           <input type="text" placeholder="Search your courses"
              />
@@ -93,7 +91,6 @@ const Courses = () => {
     className="search-icon"
   />
         </div>
-
       </div>
   
       <CategoryFilter />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import QuizQuestions from "./pages/QuizQuestions";
 
 import NavBar from "./components/NavBar";
 
@@ -37,7 +36,6 @@ const App = () => {
           <Route path="/courses" element={<Courses />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/quize" element={<Quize />} />
-          <Route path="/quizquestions" element={<QuizQuestions />} />
 
           <Route path="/profile" element={<Profile />} />
           <Route path="/edit-profile" element={<EditProfile />} />
