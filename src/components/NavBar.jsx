@@ -35,8 +35,8 @@ const [authMode, setAuthMode] = useState("login");
         <ul className={`nav-links ${showmenu ? "active" : ""}`}>
           <li><Link to="/Home">Home</Link></li> 
           <li> <Link to ="/Courses">Courses</Link></li>
-          <li>Blogs</li>
-          <li>Quiz</li>
+          <li><Link to="/blogs">Blogs</Link></li>
+          <li><Link to="/quize">Quiz</Link></li>
         </ul>
 
       <div className="nav-actions">

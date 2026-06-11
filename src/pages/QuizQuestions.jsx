@@ -1,8 +1,11 @@
 import React from 'react';
 import 'remixicon/fonts/remixicon.css';
 import './QuizQuestions.css';
+import { Navigate, useNavigate } from 'react-router-dom';
+import QuizCompleted from './QuizCompleted';
 
 const QuizQuestions = () => {
+  const navigate =useNavigate();
   return (
     <>
       {/* Navbar */}
@@ -58,7 +61,8 @@ const QuizQuestions = () => {
           <button className="next-btn">Next</button>
         </div>
 
-        <button className="submit-btn">
+        <button className="submit-btn"
+        onClick={()=>navigate ("/quiz-completed")}>
           Submit Quiz
         </button>
 

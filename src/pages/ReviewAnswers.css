@@ -1,0 +1,160 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.review-container{
+    max-width:900px;
+    margin:30px auto;
+    padding:20px;
+}
+
+.review-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.review-header h1{
+    color:#1f2937;
+    margin-bottom:10px;
+}
+
+.review-header p{
+    color:#6b7280;
+}
+
+.review-card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.review-card h3{
+    color:#7c3aed;
+    margin-bottom:10px;
+}
+
+.review-card h2{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.answer-section{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.answer-box{
+    padding:15px;
+    border-radius:10px;
+}
+
+.correct{
+    background:#dcfce7;
+    border-left:5px solid #22c55e;
+}
+
+.wrong{
+    background:#fee2e2;
+    border-left:5px solid #ef4444;
+}
+
+.correct-answer{
+    background:#e0f2fe;
+    border-left:5px solid #3b82f6;
+}
+
+.answer-box strong{
+    display:block;
+    margin-bottom:8px;
+}
+
+.review-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.dashboard-btn,
+.quiz-btn{
+    width:260px;
+    height:58px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.dashboard-btn{
+    background:#7c3aed;
+    color:white;
+    border:none;
+}
+
+.quiz-btn{
+    background:white;
+    color:#7c3aed;
+    border:2px solid #7c3aed;
+    
+}
+.dashboard-btn:hover{
+    background:#6d28d9;
+}
+
+.quiz-btn:hover{
+    background:#f5f3ff;
+}
+.question-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.status-badge{
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.correct{
+    background:#dcfce7;
+    color:#16a34a;
+}
+
+.incorrect{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+@media (max-width:768px){
+
+    .review-container{
+        padding:15px;
+    }
+
+    .review-card{
+        padding:20px;
+    }
+
+    .review-card h2{
+        font-size:18px;
+    }
+
+    .review-buttons{
+        flex-direction:column;
+    }
+
+    .dashboard-btn,
+    .quiz-btn{
+        width:100%;
+    }
+}
