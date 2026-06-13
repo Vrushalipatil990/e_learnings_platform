@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 
 import Footer from "./components/Footer";
 
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Courses from "./pages/Courses";
 import Blogs from "./pages/blogs";
 import Quize from "./pages/Quiz";

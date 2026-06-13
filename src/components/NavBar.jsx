@@ -9,7 +9,7 @@ import search_icon_dark from "../assets/search-b.png";
 import toggle_light from "../assets/night.png";
 import toggle_dark from "../assets/day.png";
 import { Link } from "react-router-dom";
-// import AuthPopup from "./AuthPopup";
+import AuthPopup from "./AuthPopup";
 
 const NavBar = ({ theme, setTheme }) => {
 
