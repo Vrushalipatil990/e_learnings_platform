@@ -8,6 +8,8 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
+import CourseDetails from "./pages/CourseDetails";
+import MyCourses from "./pages/MyCourses";
 import Blogs from "./pages/blogs";
 import Quize from "./pages/Quiz";
 import QuizCompleted from "./pages/QuizCompleted";
@@ -39,6 +41,8 @@ const App = () => {
           <Route path="/home" element={<Home />} />
 
           <Route path="/courses" element={<Courses />} />
+          <Route path="/course/:id" element={<CourseDetails />} />
+          <Route path="/my-courses" element={<MyCourses />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/quize" element={<Quize />} />
           <Route path="/quizquestions" element={<QuizQuestions />} />

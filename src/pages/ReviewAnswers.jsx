@@ -3,28 +3,13 @@ import "./ReviewAnswers.css";
 import { useNavigate } from "react-router-dom";
 
 const ReviewAnswers = () => {
-   
-  const reviewData = [
-    {
-      question: "What is React?",
-      userAnswer: "A JavaScript Library for building user interfaces",
-      correctAnswer: "A JavaScript Library for building user interfaces",
-      isCorrect: true
-    },
-    {
-      question: "Who developed React?",
-      userAnswer: "Google",
-      correctAnswer: "Facebook",
-      isCorrect: false
-    },
-    {
-      question: "What is JSX?",
-      userAnswer: "JavaScript XML",
-      correctAnswer: "JavaScript XML",
-      isCorrect: true
-    }
-  ];
   const navigate = useNavigate();
+
+  const questions =
+    JSON.parse(localStorage.getItem("quizQuestions")) || [];
+
+  const selectedAnswers =
+    JSON.parse(localStorage.getItem("selectedAnswers")) || {};
 
   return (
     <div className="review-container">
@@ -34,58 +19,69 @@ const ReviewAnswers = () => {
         <p>Check your responses and learn from mistakes.</p>
       </div>
 
-      {reviewData.map((item, index) => (
-        <div className="review-card" key={index}>
+      {questions.map((item, index) => {
+        const userAnswer = selectedAnswers[index];
+        const correctAnswer = item.answer;
 
-          <h3>
-            Question {index + 1}
-          </h3>
+        const isCorrect = userAnswer === correctAnswer;
 
-          <div className="question-header">
-            <h2>{item.question}</h2>
+        return (
+          <div className="review-card" key={index}>
 
-             <span
-              className={
-                   item.isCorrect
-                  ? "status-badge correct"
-                 : "status-badge incorrect"
+            <h3>Question {index + 1}</h3>
+
+            <div className="question-header">
+              <h2>{item.question}</h2>
+
+              <span
+                className={
+                  isCorrect
+                    ? "status-badge correct"
+                    : "status-badge incorrect"
                 }
-             >
-              {item.isCorrect ? "Correct" : "Incorrect"}
-             </span>
-              </div>
-
-          <div className="answer-section">
-
-            <div
-              className={`answer-box ${
-                item.isCorrect ? "correct" : "wrong"
-              }`}
-            >
-              <strong>Your Answer:</strong>
-              <p>{item.userAnswer}</p>
+              >
+                {isCorrect ? "Correct" : "Incorrect"}
+              </span>
             </div>
 
-            <div className="answer-box correct-answer">
-              <strong>Correct Answer:</strong>
-              <p>{item.correctAnswer}</p>
+            <div className="answer-section">
+
+              <div
+                className={`answer-box ${
+                  isCorrect ? "correct" : "wrong"
+                }`}
+              >
+                <strong>Your Answer:</strong>
+                <p>{userAnswer || "Not Answered"}</p>
+              </div>
+
+              <div className="answer-box correct-answer">
+                <strong>Correct Answer:</strong>
+                <p>{correctAnswer}</p>
+              </div>
+
             </div>
 
           </div>
-
-        </div>
-      ))}
+        );
+      })}
 
       <div className="review-buttons">
-        <button className="dashboard-btn" onClick={()=> navigate("/leaderboard")}>
+
+        <button
+          className="dashboard-btn"
+          onClick={() => navigate("/leaderboard")}
+        >
           Back To Dashboard
         </button>
 
-       <button
-         className="quiz-btn" onClick={() => navigate("/quize")}
-       >
-  Back To Quizzes
-</button>
+        <button
+          className="quiz-btn"
+          onClick={() => navigate("/quize")}
+        >
+          Back To Quizzes
+        </button>
+
       </div>
 
     </div>

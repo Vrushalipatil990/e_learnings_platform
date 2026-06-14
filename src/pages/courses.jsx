@@ -161,16 +161,17 @@ const Courses = () => {
 
   {filteredCourses.map((course) => (
     <CourseCard
-      key={course.id}
-      image={course.image}
-      instructor={course.instructor}
-      category={course.category}
-      title={course.title}
-      duration={course.duration}
-      lectures={course.lectures}
-      price={course.price}
-      rating={course.rating}
-    />
+  key={course.id}
+  id={course.id}
+  image={course.image}
+  instructor={course.instructor}
+  category={course.category}
+  title={course.title}
+  duration={course.duration}
+  lectures={course.lectures}
+  price={course.price}
+  rating={course.rating}
+/>
   ))}
 
 </div>
