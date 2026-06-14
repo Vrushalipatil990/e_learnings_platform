@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import QuizQuestions from "./pages/QuizQuestions";
 
 import NavBar from "./components/NavBar";
 
 import Footer from "./components/Footer";
 
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Courses from "./pages/Courses";
 import CourseDetails from "./pages/CourseDetails";
 import MyCourses from "./pages/MyCourses";
 import Blogs from "./pages/blogs";
 import Quize from "./pages/Quiz";
+import QuizQuestions from "./pages/QuizQuestions";
 import QuizCompleted from "./pages/QuizCompleted";
 import ReviewAnswers from "./pages/ReviewAnswers";
 import Leaderboard from "./pages/Leaderboard";

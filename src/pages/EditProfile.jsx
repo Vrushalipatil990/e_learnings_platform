@@ -1,16 +1,20 @@
 import pro_pic from "../assets/temparary_profile_picture.png";
 import "./EditProfile.css";
 import React, { useState } from "react";
+import PhoneInputModule from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 function EditProfile() {
+  const PhoneInput = PhoneInputModule.default;
   const [showWarning, setShowWarning] = useState(false);
   const [qualification, setQualification] = useState("");
+  const [phone, setPhone] = useState("");
 
+  // console.log(PhoneInput);
   return (
     <>
       <form className="edit-profile-container">
 
-      
         <div className="profile-image-section">
           <img src={pro_pic} alt="Profile" className="profile-pic" />
 
@@ -19,13 +23,29 @@ function EditProfile() {
           </button>
         </div>
 
-       
         <input type="text" placeholder="Full Name" required />
-        <input type="tel" placeholder="Phone Number" required />
-        <input type="email" placeholder="Email" required />
+
+        {/* Phone + Email Row */}
+        <div className="contact-row">
+
+          <div className="phone-field">
+            <label>Phone Number</label>
+
+            <PhoneInput
+              country={"in"}
+              value={phone}
+              onChange={(value) => setPhone(value)}
+            />
+          </div>
+
+        </div>
+        <div className="email-field">
+            <label>Email</label>
+            <input type="email" placeholder="Email" required />
+          </div>
+
         <input type="text" placeholder="Address" required />
 
-      
         <label>Gender</label>
 
         <div className="gender-group">
@@ -45,7 +65,6 @@ function EditProfile() {
           </label>
         </div>
 
-    
         <div className="dob-age-row">
 
           <div className="dob-field">
@@ -60,7 +79,6 @@ function EditProfile() {
 
         </div>
 
-        {/* Qualification */}
         <label>Qualification</label>
 
         <select
@@ -102,34 +120,35 @@ function EditProfile() {
           </>
         )}
 
-       
         <div className="button-group">
-          <button className="save-btn">Save Changes</button>
+          <button className="save-btn">
+            Save Changes
+          </button>
 
           <button type="button" className="cancel-btn">
             Cancel
           </button>
-
         </div>
+
         <button
-            type="button"
-            className="delete-profile-btn"
-            onClick={() => setShowWarning(true)}
-          >
-            Delete Account
-          </button>
+          type="button"
+          className="delete-profile-btn"
+          onClick={() => setShowWarning(true)}
+        >
+          Delete Account
+        </button>
 
       </form>
-      
 
-      
       {showWarning && (
         <div className="warning-popup">
+
           <h3>Delete Account?</h3>
 
           <p>This action cannot be undone.</p>
 
           <div className="warning-buttons">
+
             <button
               type="button"
               className="cancel-delete-btn"
@@ -144,7 +163,9 @@ function EditProfile() {
             >
               Delete
             </button>
+
           </div>
+
         </div>
       )}
     </>

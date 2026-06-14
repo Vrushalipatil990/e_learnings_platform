@@ -9,9 +9,12 @@ import search_icon_dark from "../assets/search-b.png";
 import toggle_light from "../assets/night.png";
 import toggle_dark from "../assets/day.png";
 import { Link } from "react-router-dom";
+import AuthPopup from "./AuthPopup";
 
 const NavBar = ({ theme, setTheme }) => {
 
+const [showPopup, setShowPopup] = useState(false);
+const [authMode, setAuthMode] = useState("login");
   const [showmenu, setShowMenu] = useState(false);
 
   const toggle_mode = () => {
@@ -32,8 +35,8 @@ const NavBar = ({ theme, setTheme }) => {
         <ul className={`nav-links ${showmenu ? "active" : ""}`}>
           <li><Link to="/Home">Home</Link></li> 
           <li> <Link to ="/Courses">Courses</Link></li>
-          <li>Blogs</li>
-          <li><Link to ="/Quize">Quize</Link></li>
+          <li><Link to="/blogs">Blogs</Link></li>
+          <li><Link to="/quize">Quiz</Link></li>
         </ul>
 
       <div className="nav-actions">
@@ -54,7 +57,7 @@ const NavBar = ({ theme, setTheme }) => {
     alt="Toggle"
     className="toggle-icon"
   />
-  <Link to="/profile">
+  <Link to="/profile"  onClick={() => setShowPopup(true)}>
     <CgProfile  id="profile-icon" 
     color={theme == "light" ? "222": "fff"}
     />
@@ -68,6 +71,13 @@ const NavBar = ({ theme, setTheme }) => {
   </div>
 
 </div>
+{showPopup && (
+  <AuthPopup
+  mode={authMode}
+  setMode={setAuthMode}
+  closePopup={() => setShowPopup(false)}
+/>
+)}
 
     </nav>
   );
