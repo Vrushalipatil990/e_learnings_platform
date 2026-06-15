@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./MyCourses.css";
 
 const MyCourses = () => {
+  const navigate = useNavigate();
+
   const [enrolledCourses, setEnrolledCourses] = useState([]);
 
   useEffect(() => {
@@ -10,19 +13,6 @@ const MyCourses = () => {
 
     setEnrolledCourses(courses);
   }, []);
-
-  const removeCourse = (courseId) => {
-    const updatedCourses = enrolledCourses.filter(
-      (course) => course.id !== courseId
-    );
-
-    setEnrolledCourses(updatedCourses);
-
-    localStorage.setItem(
-      "enrolledCourses",
-      JSON.stringify(updatedCourses)
-    );
-  };
 
   return (
     <div className="my-courses-container">
@@ -81,20 +71,15 @@ const MyCourses = () => {
                   </span>
                 </div>
 
-                <div className="button-group">
-                  <button className="continue-btn">
-                    Continue Learning
-                  </button>
+                <button
+                  className="continue-btn"
+                  onClick={() =>
+                    navigate("/course-player")
+                  }
+                >
+                  Continue Learning
+                </button>
 
-                  <button
-                    className="remove-btn"
-                    onClick={() =>
-                      removeCourse(course.id)
-                    }
-                  >
-                    Remove
-                  </button>
-                </div>
               </div>
             </div>
           ))}

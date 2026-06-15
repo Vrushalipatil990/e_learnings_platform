@@ -9,6 +9,7 @@ import Home from "./pages/home";
 import Courses from "./pages/Courses";
 import CourseDetails from "./pages/CourseDetails";
 import MyCourses from "./pages/MyCourses";
+import CoursePlayer from "./pages/CoursePlayer";
 import Blogs from "./pages/blogs";
 import Quize from "./pages/Quiz";
 import QuizQuestions from "./pages/QuizQuestions";
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/courses" element={<Courses />} />
           <Route path="/course/:id" element={<CourseDetails />} />
           <Route path="/my-courses" element={<MyCourses />} />
+           <Route path="/course-player" element={<CoursePlayer />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/quize" element={<Quize />} />
           <Route path="/quizquestions" element={<QuizQuestions />} />
