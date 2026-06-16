@@ -26,7 +26,8 @@
 
     box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
-    overflow:hidden;
+    overflow-y:auto;
+    overflow-x:hidden;
 
     animation:popupAnimation .3s ease;
 }
@@ -53,7 +54,7 @@
 
     font-size:25px;
     cursor:pointer;
-    z-index:100;
+    z-index:1000;
 }
 
 .auth-header{
@@ -76,7 +77,7 @@
 .auth-form{
     display:flex;
     flex-direction:column;
-    gap:18px;
+    gap:10px;
 }
 
 .auth-form input{
@@ -87,7 +88,9 @@
 
     font-size:16px;
 }
-
+.auth-header{
+    margin-bottom:25px;
+}
 .forgot-password{
     text-align:right;
     color:#666;
@@ -156,18 +159,19 @@
     }
 
 } */
- @media(max-width: 768px){
+@media(max-width:768px){
 
     .auth-popup{
-        width:80%;
-        height: 95%;
-        padding:60px 20px 30px;
+        width:90%;
+        max-height:90vh;
+        padding:50px 20px 25px;
+        overflow-y:auto;
     }
-    
 
     .close-btn{
-        top:10px;
-        right:10px;
-        font-size:22px;
+        top:12px;
+        right:15px;
+        font-size:24px;
     }
+
 }

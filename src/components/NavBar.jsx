@@ -13,8 +13,8 @@ import AuthPopup from "./AuthPopup";
 
 const NavBar = ({ theme, setTheme }) => {
 
-const [showPopup, setShowPopup] = useState(false);
-const [authMode, setAuthMode] = useState("login");
+  const [showPopup, setShowPopup] = useState(false);
+  const [authMode, setAuthMode] = useState("login");
   const [showmenu, setShowMenu] = useState(false);
 
   const toggle_mode = () => {
@@ -30,14 +30,14 @@ const [authMode, setAuthMode] = useState("login");
         alt="Logo"
         className="logo"
       />
-      
 
-        <ul className={`nav-links ${showmenu ? "active" : ""}`}>
-          <li><Link to="/Home">Home</Link></li> 
-          <li> <Link to ="/Courses">Courses</Link></li>
-          <li><Link to="/blogs">Blogs</Link></li>
-          <li><Link to="/quize">Quiz</Link></li>
-        </ul>
+
+      <ul className={`nav-links ${showmenu ? "active" : ""}`}>
+        <li><Link to="/Home">Home</Link></li>
+        <li> <Link to="/Courses">Courses</Link></li>
+        <li><Link to="/blogs">Blogs</Link></li>
+        <li><Link to="/quize">Quiz</Link></li>
+      </ul>
 
       <div className="nav-actions">
         <div className="search-box">
@@ -49,35 +49,35 @@ const [authMode, setAuthMode] = useState("login");
           />
         </div>
 
-  <img
-    onClick={() => {
-      toggle_mode();
-    }}
-    src={theme == "light" ? toggle_light : toggle_dark}
-    alt="Toggle"
-    className="toggle-icon"
-  />
-  <Link to="/profile"  onClick={() => setShowPopup(true)}>
-    <CgProfile  id="profile-icon" 
-    color={theme == "light" ? "222": "fff"}
-    />
-  </Link>
+        <img
+          onClick={() => {
+            toggle_mode();
+          }}
+          src={theme == "light" ? toggle_light : toggle_dark}
+          alt="Toggle"
+          className="toggle-icon"
+        />
+        <Link to="/profile" onClick={() => setShowPopup(true)}>
+          <CgProfile id="profile-icon"
+            color={theme == "light" ? "222" : "fff"}
+          />
+        </Link>
 
-  <div
-    className="hamburger"
-    onClick={() => setShowMenu(!showmenu)}
-  >
-    <GiHamburgerMenu />
-  </div>
+        <div
+          className="hamburger"
+          onClick={() => setShowMenu(!showmenu)}
+        >
+          <GiHamburgerMenu />
+        </div>
 
-</div>
-{showPopup && (
-  <AuthPopup
-  mode={authMode}
-  setMode={setAuthMode}
-  closePopup={() => setShowPopup(false)}
-/>
-)}
+      </div>
+      {showPopup && (
+        <AuthPopup
+          mode={authMode}
+          setMode={setAuthMode}
+          closePopup={() => setShowPopup(false)}
+        />
+      )}
 
     </nav>
   );
