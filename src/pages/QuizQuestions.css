@@ -163,25 +163,28 @@ align-items: center;
 
 /* Mobile Responsive */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-    .question-page{
-        flex-direction:column;
-        gap:15px;
-        padding:20px;
-    }
+  .question-page {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .left h3{
-        font-size:22px;
-    }
+  .question-page .left h3 {
+    font-size: 16px;
+  }
 
-    .quiz-buttons{
-        flex-direction:column;
-        gap:15px;
-    }
+  .question-page .right {
+    width: 100%;
+    justify-content: space-between;
+  }
 
-    .prev-btn,
-    .next-btn{
-        width:100%;
-    }
+  .timer {
+    font-size: 13px;
+  }
+
+  .pause-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
 }

@@ -1,12 +1,21 @@
 import React from "react";
 import "./QuizCompleted.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const QuizCompleted = () => {
-    const navigate= useNavigate();
+  const navigate = useNavigate();
+
+  const result =
+    JSON.parse(localStorage.getItem("quizResult")) || {
+      score: 0,
+      totalQuestions: 0,
+      percentage: 0,
+      correctAnswers: 0,
+      wrongAnswers: 0,
+    };
+
   return (
     <div className="completed-container">
-
       <div className="completed-card">
 
         <div className="trophy-icon">
@@ -23,22 +32,28 @@ const QuizCompleted = () => {
 
           <div className="score-box">
             <h3>Your Score</h3>
-            <h2>8 / 10</h2>
+            <h2>
+              {result.score} / {result.totalQuestions}
+            </h2>
           </div>
 
           <div className="score-box">
             <h3>Percentage</h3>
-            <h2>80%</h2>
+            <h2>{result.percentage}%</h2>
           </div>
 
           <div className="score-box">
             <h3>Correct Answers</h3>
-            <h2 className="green">8</h2>
+            <h2 className="green">
+              {result.correctAnswers}
+            </h2>
           </div>
 
           <div className="score-box">
             <h3>Wrong Answers</h3>
-            <h2 className="red">2</h2>
+            <h2 className="red">
+              {result.wrongAnswers}
+            </h2>
           </div>
 
         </div>
@@ -49,20 +64,27 @@ const QuizCompleted = () => {
 
         <div className="completed-buttons">
 
-          <button className="review-btn"
-          onClick={()=> navigate ("/review-answers")
-          }>
+          <button
+            className="review-btn"
+            onClick={() =>
+              navigate("/review-answers")
+            }
+          >
             Review Answers
           </button>
 
-          <button className="back-btn">
+          <button
+            className="back-btn"
+            onClick={() =>
+              navigate("/quiz")
+            }
+          >
             Back to Quizzes
           </button>
 
         </div>
 
       </div>
-
     </div>
   );
 };
