@@ -6,6 +6,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const uploadRoutes = require("./routes/uploadRoutes");
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/v1/courses", courseRoutes);
+app.use("/api/upload", uploadRoutes);
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");

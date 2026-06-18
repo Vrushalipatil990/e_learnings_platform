@@ -1,19 +1,92 @@
 import pro_pic from "../assets/temparary_profile_picture.png";
 import "./EditProfile.css";
-import React, { useState } from "react";
+
 import PhoneInputModule from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+
+import { useEffect, useState } from "react";
+import { getProfile, updateProfile } from "../services/userService";
 
 function EditProfile() {
   const PhoneInput = PhoneInputModule.default;
   const [showWarning, setShowWarning] = useState(false);
-  const [qualification, setQualification] = useState("");
-  const [phone, setPhone] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
+    gender: "",
+    dateOfBirth: "",
+    qualification: "",
+    organizationName: ""
+  });
+  useEffect(() => {
 
-  // console.log(PhoneInput);
+    const fetchProfile = async () => {
+
+      try {
+
+        const data = await getProfile();
+
+        setFormData({
+          fullName: data.fullName || "",
+          email: data.email || "",
+          phoneNumber: data.phoneNumber || "",
+          address: data.address || "",
+          gender: data.gender || "",
+          dateOfBirth: data.dateOfBirth?.slice(0, 10) || "",
+          qualification: data.qualification || "",
+          organizationName: data.organizationName || ""
+        });
+
+      }
+
+      catch (error) {
+
+        console.log(error);
+
+      }
+
+    };
+
+    fetchProfile();
+
+  }, []);
+  const handleInput = (e) => {
+
+    setFormData({
+
+      ...formData,
+
+      [e.target.name]: e.target.value
+
+    });
+
+  };
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+
+    try {
+
+      await updateProfile(formData);
+
+      alert("Profile updated successfully");
+
+    }
+
+    catch (error) {
+
+      console.log(error);
+
+    }
+
+  };
+  //  console.log(PhoneInput);
+  
   return (
     <>
-      <form className="edit-profile-container">
+      <form className="edit-profile-container" onSubmit={handleSubmit}>
 
         <div className="profile-image-section">
           <img src={pro_pic} alt="Profile" className="profile-pic" />
@@ -23,7 +96,13 @@ function EditProfile() {
           </button>
         </div>
 
-        <input type="text" placeholder="Full Name" required />
+        <input
+          type="text"
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleInput}
+          required
+        />
 
         {/* Phone + Email Row */}
         <div className="contact-row">
@@ -33,18 +112,38 @@ function EditProfile() {
 
             <PhoneInput
               country={"in"}
-              value={phone}
-              onChange={(value) => setPhone(value)}
+              value={formData.phoneNumber}
+
+              onChange={(value) =>
+                setFormData({
+                  ...formData,
+                  phoneNumber: value
+                })
+              }
             />
           </div>
 
         </div>
         <div className="email-field">
-            <label>Email</label>
-            <input type="email" placeholder="Email" required />
-          </div>
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInput}
+            placeholder="Email"
+            required
+          />
+        </div>
 
-        <input type="text" placeholder="Address" required />
+        <input
+          type="text"
+          name="address"
+          value={formData.address}
+          onChange={handleInput}
+          placeholder="Address"
+          required
+        />
 
         <label>Gender</label>
 
@@ -82,9 +181,10 @@ function EditProfile() {
         <label>Qualification</label>
 
         <select
-          value={qualification}
-          onChange={(e) => setQualification(e.target.value)}
-        >
+  name="qualification"
+  value={formData.qualification}
+  onChange={handleInput}
+>
           <option value="">Select Qualification</option>
           <option value="student">Student</option>
           <option value="professional">Working Professional</option>
@@ -92,28 +192,28 @@ function EditProfile() {
           <option value="other">Other</option>
         </select>
 
-        {qualification === "student" && (
+        {formData.qualification === "student" && (
           <>
             <label>College Name</label>
             <input type="text" placeholder="Enter College Name" />
           </>
         )}
 
-        {qualification === "professional" && (
+        {formData.qualification === "professional" && (
           <>
             <label>Organization Name</label>
             <input type="text" placeholder="Enter Organization Name" />
           </>
         )}
 
-        {qualification === "teacher" && (
+        {formData.qualification === "teacher" && (
           <>
             <label>Institution Name</label>
             <input type="text" placeholder="Enter Institution Name" />
           </>
         )}
 
-        {qualification === "other" && (
+        {formData.qualification === "other" && (
           <>
             <label>Organization / College</label>
             <input type="text" placeholder="Enter Details" />

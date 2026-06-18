@@ -2,11 +2,25 @@ import React, { useEffect, useState } from "react";
 import EnrolledCourseCard from "../components/EnrolledCourseCard";
 import Dashboard from "../components/Dashboard";
 import "./Home.css";
+import {getProfile} from  "../services/userService";
 
 function Home() {
-  const userName = "Donald";
-
+  
   const [enrolledCourses, setEnrolledCourses] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const userData = await getProfile();
+        setUser(userData);
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
 
   useEffect(() => {
     const courses =
@@ -18,7 +32,7 @@ function Home() {
   return (
     <>
       <div className="hero-section">
-        <h1>Welcome back, {userName}!</h1>
+        <h1>Welcome back, {user?.fullName}!</h1>
 
         <p>
           Continue your learning journey with SkillDo.

@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
-// Signup Controller
+
 const signup = async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
@@ -31,7 +31,6 @@ const signup = async (req, res) => {
   }
 };
 
-// Login Controller
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -52,7 +51,7 @@ const login = async (req, res) => {
       });
     }
 
-    // console.log(process.env.JWT_SECRET);
+   
     const token = jwt.sign(
       {
         id: user._id,
@@ -81,7 +80,7 @@ const login = async (req, res) => {
   }
 };
 
-// Export controllers
+
 module.exports = {
   signup,
   login,
