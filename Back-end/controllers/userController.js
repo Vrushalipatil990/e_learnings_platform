@@ -27,11 +27,9 @@ const updateUserProfile = async (req, res) => {
         user.dateOfBirth = req.body.dateOfBirth || user.dateOfBirth;
         user.qualification = req.body.qualification || user.qualification;
         user.organizationName = req.body.organizationName || user.organizationName;
-
         user.profilePic = req.body.profilePic || user.profilePic;
         const updatedUser = await user.save();
        
-
         res.status(200).json(updatedUser);
 
     }

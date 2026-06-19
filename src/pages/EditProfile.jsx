@@ -3,15 +3,19 @@ import "./EditProfile.css";
 
 import PhoneInputModule from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import axios from "axios";
 
+import { useRef } from "react";
 import { useEffect, useState } from "react";
 import { getProfile, updateProfile } from "../services/userService";
 
 function EditProfile() {
+  const fileInputRef = useRef(null);
   const PhoneInput = PhoneInputModule.default;
   const [showWarning, setShowWarning] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
+    profilePic: "",
     email: "",
     phoneNumber: "",
     address: "",
@@ -30,6 +34,7 @@ function EditProfile() {
 
         setFormData({
           fullName: data.fullName || "",
+          profilePic: data.profilePic || "",
           email: data.email || "",
           phoneNumber: data.phoneNumber || "",
           address: data.address || "",
@@ -63,6 +68,46 @@ function EditProfile() {
     });
 
   };
+  const handleImageUpload = async (e) => {
+
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    try {
+
+      const data = new FormData();
+
+      data.append(
+        "profilePic",
+        file
+      );
+
+      const response = await axios.post(
+
+        "http://localhost:5000/api/upload",
+
+        data
+
+      );
+
+      setFormData({
+
+        ...formData,
+
+        profilePic: response.data.imageUrl
+
+      });
+
+    }
+
+    catch (error) {
+
+      console.log(error);
+
+    }
+
+  };
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -82,16 +127,27 @@ function EditProfile() {
     }
 
   };
-  //  console.log(PhoneInput);
-  
+
+
   return (
     <>
       <form className="edit-profile-container" onSubmit={handleSubmit}>
 
         <div className="profile-image-section">
-          <img src={pro_pic} alt="Profile" className="profile-pic" />
+          <img src={formData.profilePic || pro_pic} alt="Profile" className="profile-pic" />
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            style={{ display: "none" }}
+            onChange={handleImageUpload}
+          />
 
-          <button type="button" className="edit-image-btn">
+          <button
+            type="button"
+            className="edit-image-btn"
+            onClick={() => fileInputRef.current.click()}
+          >
             ✏️
           </button>
         </div>
@@ -181,10 +237,10 @@ function EditProfile() {
         <label>Qualification</label>
 
         <select
-  name="qualification"
-  value={formData.qualification}
-  onChange={handleInput}
->
+          name="qualification"
+          value={formData.qualification}
+          onChange={handleInput}
+        >
           <option value="">Select Qualification</option>
           <option value="student">Student</option>
           <option value="professional">Working Professional</option>
