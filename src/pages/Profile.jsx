@@ -25,63 +25,61 @@ function Profile() {
 
   const handleLogout = () => {
 
-  localStorage.removeItem("token");
+    localStorage.removeItem("token");
 
-  localStorage.removeItem("user");
-setUser(null);
-  navigate("/");
-  
-
-};
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/");
+  };
 
   return (
     <>
-    
-
-<div className="profile-header">
-  {user && (
-    <button
-  className="logout-btn"
-  onClick={() => setShowLogoutPopup(true)}
->
-  Logout →
-</button>
-  )}
-  {showLogoutPopup && (
-  <div className="warning-popup">
-
-    <h3>Logout?</h3>
-
-    <p>You will need to login again.</p>
-
-    <div className="warning-buttons">
-
-      <button
-        className="cancel-delete-btn"
-        onClick={() => setShowLogoutPopup(false)}
-      >
-        Cancel
-      </button>
-
-      <button
-        className="confirm-delete-btn"
-        onClick={handleLogout}
-      >
-        Logout
-      </button>
-
-    </div>
-
-  </div>
-)}
 
 
-  
+      <div className="profile-header">
+        {user && (
+          <button
+            className="logout-btn"
+            onClick={() => setShowLogoutPopup(true)}
+          >
+            Logout →
+          </button>
+        )}
+        {showLogoutPopup && (
+          <div className="warning-popup">
 
-</div>
+            <h3>Logout?</h3>
+
+            <p>You will need to login again.</p>
+
+            <div className="warning-buttons">
+
+              <button
+                className="cancel-delete-btn"
+                onClick={() => setShowLogoutPopup(false)}
+              >
+                Cancel
+              </button>
+
+              <button
+                className="confirm-delete-btn"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+
+            </div>
+
+          </div>
+        )}
+
+
+
+
+      </div>
       <div className="profile-container">
 
-        <img src={user?.profilePic ||  pro_pic} alt="Profile" className="profile-pic" />
+        <img src={user?.profilePic || pro_pic} alt="Profile" className="profile-pic" />
 
 
         <div className="profile-info">

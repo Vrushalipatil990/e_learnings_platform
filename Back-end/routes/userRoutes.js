@@ -4,9 +4,10 @@ const { protect } = require("../middleware/authMiddleware");
 
 const {
     getUserProfile,
-    updateUserProfile
+    updateUserProfile,
+    deleteUserProfile
 } = require("../controllers/userController");
-
+router.delete("/profile",protect, deleteUserProfile);
 
 router.get("/profile", protect, getUserProfile);
 
