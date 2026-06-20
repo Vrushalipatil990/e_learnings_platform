@@ -37,3 +37,21 @@ export const updateProfile = async (userData) => {
     return response.data;
 
 };
+export const deleteProfile = async () => {
+
+    const token = localStorage.getItem("token");
+
+    const response = await axios.delete(
+
+        "http://localhost:5000/api/users/profile",
+
+        {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }
+
+    );
+
+    return response.data;
+};

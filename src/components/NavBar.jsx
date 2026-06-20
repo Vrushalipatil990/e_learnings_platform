@@ -12,7 +12,6 @@ import { Link } from "react-router-dom";
 import AuthPopup from "./AuthPopup";
 
 const NavBar = ({ theme, setTheme }) => {
-
   const [showPopup, setShowPopup] = useState(false);
   const [authMode, setAuthMode] = useState("login");
   const [showmenu, setShowMenu] = useState(false);
@@ -62,7 +61,7 @@ const NavBar = ({ theme, setTheme }) => {
             color={theme == "light" ? "222" : "fff"}
           />
         </Link>
-
+        
         <div
           className="hamburger"
           onClick={() => setShowMenu(!showmenu)}

@@ -1,16 +1,73 @@
-# React + Vite
+# SkillDo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SkillDo is a full-stack e-learning platform developed using the MERN stack. The project focuses on user authentication, profile management, and scalable backend architecture.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Frontend
 
-## React Compiler
+* React
+* Vite
+* React Router
+* Axios
+* CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Backend
 
-## Expanding the ESLint configuration
+* Node.js
+* Express.js
+* MongoDB Atlas
+* Mongoose
+* JWT
+* Multer
+* Cloudinary
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+* User registration and authentication
+* JWT-based authorization
+* User profile management
+* Profile image upload with Cloudinary
+* Edit profile functionality
+* Account deletion
+* Dark mode support
+* Responsive UI
+
+## Project Structure
+
+```
+Back-end/
+├── config
+├── controllers
+├── middleware
+├── models
+├── routes
+
+Front-end/
+├── assets
+├── components
+├── pages
+├── services
+```
+
+## Setup
+
+### Backend
+
+```bash
+cd Back-end
+npm install
+npm start
+```
+
+### Frontend
+
+```bash
+cd Front-end
+npm install
+npm run dev
+```
+
+## Status
+
+The project is under active development. Features such as protected routes, course management, and enrollment functionality are currently being implemented.

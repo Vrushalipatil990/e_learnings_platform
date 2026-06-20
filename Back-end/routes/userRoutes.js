@@ -7,6 +7,7 @@ const {
     updateUserProfile
 } = require("../controllers/userController");
 
+
 router.get("/profile", protect, getUserProfile);
 
 router.put("/profile", protect, updateUserProfile);

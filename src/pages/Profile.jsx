@@ -4,8 +4,12 @@ import { getProfile } from "../services/userService";
 import EnrolledCourseCard from "../components/EnrolledCourseCard";
 import { Link } from "react-router-dom";
 import pro_pic from "../assets/temparary_profile_picture.png";
+import { useNavigate } from "react-router-dom";
+
 function Profile() {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -19,8 +23,62 @@ function Profile() {
     fetchProfile();
   }, []);
 
+  const handleLogout = () => {
+
+  localStorage.removeItem("token");
+
+  localStorage.removeItem("user");
+setUser(null);
+  navigate("/");
+  
+
+};
+
   return (
     <>
+    
+
+<div className="profile-header">
+  {user && (
+    <button
+  className="logout-btn"
+  onClick={() => setShowLogoutPopup(true)}
+>
+  Logout →
+</button>
+  )}
+  {showLogoutPopup && (
+  <div className="warning-popup">
+
+    <h3>Logout?</h3>
+
+    <p>You will need to login again.</p>
+
+    <div className="warning-buttons">
+
+      <button
+        className="cancel-delete-btn"
+        onClick={() => setShowLogoutPopup(false)}
+      >
+        Cancel
+      </button>
+
+      <button
+        className="confirm-delete-btn"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
+
+    </div>
+
+  </div>
+)}
+
+
+  
+
+</div>
       <div className="profile-container">
 
         <img src={user?.profilePic ||  pro_pic} alt="Profile" className="profile-pic" />

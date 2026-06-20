@@ -27,7 +27,7 @@
 .edit-button{
     
     border-radius:15px;
-    font-size:13px;
+    font-size:15px;
     padding:10px 20px;
     cursor:pointer;
     background-color:#1e1e1e;
@@ -40,7 +40,21 @@
     margin:30px 50px 10px;
     font-size:22px;
 }
+.profile-header{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:20px;
+}
 
+.logout-btn{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#252323;
+    color:white;
+    cursor:pointer;
+    margin-right:30px;
+}
 @media (max-width:768px){
 
     .profile-container{
@@ -54,11 +68,15 @@
 
 }
 .dark .profile-container{
-    background:#1e1e1e;
+    background:#323232;
     color:white;
 }
 .dark .edit-button{
-    background-color:#ffffff;
+    background-color:#a7a6a6;
+    color:#222;
+}
+.dark .logout-btn{
+    background:#a7a6a6;
     color:#222;
 }
 

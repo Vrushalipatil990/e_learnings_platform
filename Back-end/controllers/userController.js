@@ -43,7 +43,31 @@ const updateUserProfile = async (req, res) => {
     }
 
 };
+const deleteUserProfile = async (req, res) => {
+
+    try {
+
+        await User.findByIdAndDelete(
+            req.user._id
+        );
+
+        res.status(200).json({
+            message: "Account deleted successfully"
+        });
+
+    }
+
+    catch (error) {
+
+        res.status(500).json({
+            message: error.message
+        });
+
+    }
+
+};
 module.exports = {
     getUserProfile,
-    updateUserProfile
+    updateUserProfile,
+    deleteUserProfile
 };

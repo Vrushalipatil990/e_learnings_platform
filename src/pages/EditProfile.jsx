@@ -1,6 +1,7 @@
 import pro_pic from "../assets/temparary_profile_picture.png";
 import "./EditProfile.css";
-
+import { deleteProfile } from "../services/userService";
+import { useNavigate } from "react-router-dom";
 import PhoneInputModule from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import axios from "axios";
@@ -10,6 +11,7 @@ import { useEffect, useState } from "react";
 import { getProfile, updateProfile } from "../services/userService";
 
 function EditProfile() {
+  const navigate = useNavigate();
   const fileInputRef = useRef(null);
   const PhoneInput = PhoneInputModule.default;
   const [showWarning, setShowWarning] = useState(false);
@@ -24,6 +26,27 @@ function EditProfile() {
     qualification: "",
     organizationName: ""
   });
+  const handleDelete = async () => {
+
+    try {
+
+        await deleteProfile();
+
+        localStorage.removeItem("token");
+
+        localStorage.removeItem("user");
+
+        navigate("/");
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+    }
+
+};
   useEffect(() => {
 
     const fetchProfile = async () => {
@@ -316,6 +339,7 @@ function EditProfile() {
             <button
               type="button"
               className="confirm-delete-btn"
+              onClick={handleDelete}
             >
               Delete
             </button>

@@ -68,8 +68,8 @@
 }
 
 .dark .enrolled-card{
-    background:#1e1e1e;
-    color:white;
+    background:#323232;
+    color:#e5e7eb;
 }
 
 .dark .progress-header,
@@ -78,7 +78,7 @@
 }
 
 .dark .progress-bar{
-    background:#333;
+    background:#fdfbfb;
 }
 
 .progress-fill{
