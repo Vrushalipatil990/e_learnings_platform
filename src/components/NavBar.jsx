@@ -10,11 +10,16 @@ import toggle_light from "../assets/night.png";
 import toggle_dark from "../assets/day.png";
 import { Link } from "react-router-dom";
 import AuthPopup from "./AuthPopup";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const NavBar = ({ theme, setTheme }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [authMode, setAuthMode] = useState("login");
   const [showmenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const toggle_mode = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -56,12 +61,32 @@ const NavBar = ({ theme, setTheme }) => {
           alt="Toggle"
           className="toggle-icon"
         />
-        <Link to="/profile" onClick={() => setShowPopup(true)}>
-          <CgProfile id="profile-icon"
-            color={theme == "light" ? "222" : "fff"}
-          />
-        </Link>
-        
+        {/* <Link
+  to="/profile"
+  onClick={() => {
+    if (!localStorage.getItem("token")) {
+      setShowPopup(true);
+    }
+  }}
+>
+  <CgProfile
+    id="profile-icon"
+    color={theme === "light" ? "222" : "fff"}
+  />
+</Link> */}
+        <CgProfile
+          id="profile-icon"
+          color={theme === "light" ? "222" : "fff"}
+          onClick={() => {
+            if (localStorage.getItem("user")) {
+              navigate("/profile");
+            } else {
+              setShowPopup(true);
+            }
+          }}
+        />
+
+
         <div
           className="hamburger"
           onClick={() => setShowMenu(!showmenu)}

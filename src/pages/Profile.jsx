@@ -5,8 +5,10 @@ import EnrolledCourseCard from "../components/EnrolledCourseCard";
 import { Link } from "react-router-dom";
 import pro_pic from "../assets/temparary_profile_picture.png";
 import { useNavigate } from "react-router-dom";
-
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 function Profile() {
+  const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
@@ -25,9 +27,6 @@ function Profile() {
 
   const handleLogout = () => {
 
-    localStorage.removeItem("token");
-
-    localStorage.removeItem("user");
     setUser(null);
     navigate("/");
   };

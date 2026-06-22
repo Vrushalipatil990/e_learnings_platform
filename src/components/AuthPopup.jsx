@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { validateAuthForm } from "../utils/validation";
 import "./AuthPopup.css";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 function AuthPopup({ mode, setMode, closePopup }) {
   const isLogin = mode === "login";
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -48,9 +51,17 @@ function AuthPopup({ mode, setMode, closePopup }) {
 
         localStorage.setItem("token", response.data.token);
 
-        localStorage.setItem(
-          "user",
-          JSON.stringify(response.data.user)
+        // localStorage.setItem(
+        //   "user",
+        //   JSON.stringify(response.data.user)
+        // );
+
+        // closePopup();
+        // navigate("/profile");
+        // window.location.reload();
+        login(
+          response.data.user,
+          response.data.token
         );
 
         closePopup();
@@ -80,7 +91,7 @@ function AuthPopup({ mode, setMode, closePopup }) {
     } catch (error) {
       setError(
         error.response?.data?.message ||
-          "Something went wrong"
+        "Something went wrong"
       );
     }
   };

@@ -16,6 +16,7 @@ import QuizQuestions from "./pages/QuizQuestions";
 import QuizCompleted from "./pages/QuizCompleted";
 import ReviewAnswers from "./pages/ReviewAnswers";
 import Leaderboard from "./pages/Leaderboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
@@ -52,8 +53,23 @@ const App = () => {
           <Route path="/review-answers" element={<ReviewAnswers/>}/>
           <Route path="/leaderboard" element={<Leaderboard/>}/>
 
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route
+  path="/profile"
+  element={
+    <ProtectedRoute>
+      <Profile />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/edit-profile"
+  element={
+    <ProtectedRoute>
+      <EditProfile />
+    </ProtectedRoute>
+  }
+/>
         </Routes>
       </div>
          <Footer theme={theme} />
