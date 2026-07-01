@@ -150,7 +150,8 @@ exports.deleteCourse = async (req, res) => {
             message: "Course Deleted Successfully"
         });
 
-    } catch (error) {
+    } 
+    /* catch (error) {
 
         res.status(500).json({
             success: false,
@@ -158,4 +159,22 @@ exports.deleteCourse = async (req, res) => {
         });
 
     }
-};
+}; */
+catch (error) {
+
+    if (error.name === "ValidationError") {
+
+        return res.status(400).json({
+            success: false,
+            message: error.message
+        });
+
+    }
+
+    res.status(500).json({
+        success: false,
+        message: "Internal Server Error"
+    });
+
+}
+}

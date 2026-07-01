@@ -1,11 +1,64 @@
 import { useNavigate } from "react-router-dom";
+import { MdDelete } from "react-icons/md";
+import { FaEdit, FaExpeditedssl } from "react-icons/fa";
 
 import AdminLayout from "../layouts/AdminLayout";
+import { useEffect, useState } from "react";
+import { getAllCourses ,deleteCourse} from "../services/courseService";
 
 import "./Courses.css";
 
 function Courses() {
-  const navigate = useNavigate();
+  const [courses, setCourses] = useState([]);
+  const navigate =useNavigate();
+  
+  useEffect(() => {
+
+    fetchCourses();
+
+}, []);
+
+const fetchCourses = async () => {
+
+    try {
+
+        const response = await getAllCourses();
+
+        setCourses(response.data);
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+};
+const handleDelete = async (id) => {
+
+    const confirmDelete = window.confirm(
+        "Are you sure you want to delete this course?"
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+
+        const response = await deleteCourse(id);
+
+        alert(response.message);
+
+        fetchCourses();
+
+    } catch (error) {
+
+        alert(
+            error.response?.data?.message ||
+            "Failed to delete course"
+        );
+
+    }
+
+};
   return (
     <AdminLayout>
       <div className="courses-header">
@@ -30,30 +83,41 @@ function Courses() {
               <th>Actions</th>
             </tr>
           </thead>
+<tbody>
 
-          <tbody>
-            <tr>
-              <td>🖼️</td>
-              <td>React JS</td>
-              <td>Web Development</td>
-              <td>₹499</td>
-              <td>
-                <button>Edit</button>
-                <button>Delete</button>
-              </td>
-            </tr>
+{courses.map((course) => (
 
-            <tr>
-              <td>🖼️</td>
-              <td>Java DSA</td>
-              <td>Programming</td>
-              <td>₹699</td>
-              <td>
-                <button>Edit</button>
-                <button>Delete</button>
-              </td>
-            </tr>
-          </tbody>
+<tr key={course._id}>
+
+<td>
+<img
+    src={course.image}
+    width="80"
+/>
+</td>
+
+<td>{course.title}</td>
+
+<td>{course.category}</td>
+
+<td>{course.price}</td>
+
+<td>
+<button
+    onClick={() => navigate(`/edit-course/${course._id}`)}
+>
+   <FaEdit/>
+</button>
+
+<button onClick={()=>handleDelete(course._id)}> <MdDelete/> </button>
+
+</td>
+
+</tr>
+
+))}
+
+</tbody>
         </table>
       </div>
     </AdminLayout>

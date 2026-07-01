@@ -1,45 +1,67 @@
+import { useState } from "react";
 import AdminLayout from "../layouts/AdminLayout";
-import "./AddCourse.css";
+import CourseForm from "../components/CourseForm";
+import { createCourse } from "../services/courseService";
 
 function AddCourse() {
-  return (
-    <AdminLayout>
 
-      <h1>Add New Course</h1>
+    const [courseData, setCourseData] = useState({
+        image: "",
+        instructor: "",
+        category: "",
+        title: "",
+        description: "",
+        duration: "",
+        lectures: "",
+        price: ""
+    });
 
-      <form className="course-form">
+    const handleSubmit = async (e) => {
 
-        <label>Course Title</label>
-        <input type="text" placeholder="React JS Bootcamp" />
+        e.preventDefault();
 
-        <label>Description</label>
-        <textarea placeholder="Write course description..." />
+        try {
 
-        <label>Category</label>
-        <select>
-          <option>Web Development</option>
-          <option>Programming</option>
-          <option>AI / ML</option>
-          <option>Cloud Computing</option>
-        </select>
+            const response = await createCourse(courseData);
 
-        <label>Price</label>
-        <input type="number" placeholder="499" />
+            alert(response.message);
 
-        <label>Thumbnail</label>
-        <input type="file" />
+            setCourseData({
+                image: "",
+                instructor: "",
+                category: "",
+                title: "",
+                description: "",
+                duration: "",
+                lectures: "",
+                price: ""
+            });
 
-        <label>Instructor</label>
-        <input type="text" placeholder="John Doe" />
+        } catch (error) {
 
-        <button type="submit">
-          Create Course
-        </button>
+            alert(error.response?.data?.message || "Failed to create course");
 
-      </form>
+        }
 
-    </AdminLayout>
-  );
+    };
+
+    return (
+
+        <AdminLayout>
+
+            <h1>Add New Course</h1>
+
+            <CourseForm
+                courseData={courseData}
+                setCourseData={setCourseData}
+                handleSubmit={handleSubmit}
+                buttonText="Create Course"
+            />
+
+        </AdminLayout>
+
+    );
+
 }
 
 export default AddCourse;

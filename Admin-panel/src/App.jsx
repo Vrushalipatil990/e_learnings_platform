@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
+import EditCourse from "./pages/EditCourse";
 
 import Dashboard from "./pages/Dashboard";
 import Courses from "./pages/Courses";
@@ -12,6 +13,8 @@ function App() {
       <Route path="/" element={<Dashboard />} />
       <Route path="/courses" element={<Courses />} />
       <Route path="/add-course" element={<AddCourse />} />
+      <Route path="/edit-course/:id" element={<EditCourse />}
+/>
     </Routes>
     </BrowserRouter>
   );
