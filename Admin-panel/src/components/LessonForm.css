@@ -1,0 +1,84 @@
+.lesson-form {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.lesson-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.lesson-form label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #444;
+}
+
+.lesson-form input,
+.lesson-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.lesson-form input:focus,
+.lesson-form textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 6px rgba(37, 99, 235, 0.2);
+}
+
+.lesson-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.lesson-form button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lesson-form button:hover {
+    background: #1d4ed8;
+}
+
+.lesson-form button:active {
+    transform: scale(0.98);
+}
+
+.lesson-form img {
+    width: 180px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .lesson-form {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .lesson-form button {
+        width: 100%;
+    }
+}

@@ -111,6 +111,12 @@ const handleDelete = async (id) => {
 
 <button onClick={()=>handleDelete(course._id)}> <MdDelete/> </button>
 
+<button
+    onClick={() => navigate(`/manage-lessons/${course._id}`)}
+>
+    Manage Lessons
+</button>
+
 </td>
 
 </tr>
